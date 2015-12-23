@@ -70,14 +70,12 @@ angular.module('confusionApp', [])
 
             
         }])
-
         .controller('ContactController', ['$scope', function($scope) {
             $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
                         var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
                         $scope.channels = channels;
             $scope.invalidChannelSelection = false;
                                 }])
-
         .controller('FeedbackController', ['$scope', function($scope) {
                         $scope.sendFeedback = function() {
                                 console.log($scope.feedback);
@@ -95,7 +93,8 @@ angular.module('confusionApp', [])
                     console.log($scope.feedback);
                 }
             };
-        }]);
+        }])
+  ;
 
 
 
