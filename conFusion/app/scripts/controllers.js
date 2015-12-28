@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('confusionApp')
+
         .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
             
             $scope.tab = 1;
@@ -8,6 +9,7 @@ angular.module('confusionApp')
             $scope.showDetails = false;
 
             $scope.dishes= menuFactory.getDishes();
+
                         
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
@@ -67,19 +69,31 @@ angular.module('confusionApp')
         }])
 
         .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
-            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
-                        $scope.dish = dish;
-                    }])
 
+            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
+            
+            $scope.dish = dish;
+            
+        }])
 
         .controller('DishCommentController', ['$scope', function($scope) {
-            $scope.comment = {author:"", rating:5, comment:"", date:""};
-        
+            
+            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
+            
             $scope.submitComment = function () {
-                    $scope.comment.date = new Date().toISOString();
-                    $scope.dish.comments.push($scope.comment)
-                    $scope.commentForm.$setPristine();
-                    $scope.comment = {author:"", rating:5, comment:"", date:""};
+                
+                $scope.mycomment.date = new Date().toISOString();
+                console.log($scope.mycomment);
+                
+                $scope.dish.comments.push($scope.mycomment);
+                
+                $scope.commentForm.$setPristine();
+                
+                $scope.mycomment = {rating:5, comment:"", author:"", date:""};
             }
-        }])          
+        }])
+
+        // implement the IndexController and About Controller here
+
+
 ;
