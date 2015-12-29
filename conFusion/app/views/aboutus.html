@@ -55,7 +55,17 @@
             <div class="col-xs-12 col-sm-9">
                 <h2>Corporate Leadership</h2>
                <ul class="media-list">
-					<h4>Implement the Corporate Leaders List here</h4>
+                    <li class="media" ng-repeat="lead in leaderships">
+                        <div class="media-left media-middle">
+                            <img class="media-object img-thumbnail"
+                            ng-src={{lead.image}} alt={{lead.name}}>
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">{{lead.name}}&nbsp;&nbsp;<span style="font-size:18px; color: gray; font-style:normal;">{{lead.designation}}</span></h2>
+                             <p>{{lead.description}}</p>
+                        </div>
+                    </li>
+                  </ul>
                </ul>
 
             </div>
